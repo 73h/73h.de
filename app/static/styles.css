@@ -81,8 +81,8 @@ a:hover {
 }
 
 .social img {
-    width: 3em;
-    margin-right: .3em;
+    width: 2em;
+    margin-right: .2em;
     cursor: pointer;
     -webkit-filter: grayscale(100%);
     -moz-filter: grayscale(100%);
