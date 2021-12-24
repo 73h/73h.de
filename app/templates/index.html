@@ -1,10 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xml:lang="de" lang="de">
 <head>
-    <meta charset="UTF-8">
-    <title>73h.de</title>
+    <title>Heiko Schmidt</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="title" content="Webdesign, Entwicklung, Beratung"/>
+    <meta name="description"
+          content="Webdesign, Entwicklung, Softwareentwicklung, Digitalisierung, Beratung, Social Media, SEO"/>
+    <meta name="robots" content="index, follow"/>
+    <meta name="author" content="Heiko Schmidt"/>
+    <meta name="date" content="2015-12-11"/>
+    <meta name="language" content="de"/>
+    <meta name="rights" lang="de" content="Alle Rechte liegen beim Autor"/>
+    <meta name="keywords"
+          content="Webdesign, Entwicklung, Softwareentwicklung, Digitalisierung, Beratung, Social Media, SEO, Heiko Schmidt"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+    <meta property="og:title" content="Webdesign, Entwicklung, Beratung"/>
+    <meta property="og:site_name" content="Webdesign, Entwicklung, Beratung"/>
+    <meta property="og:url" content="https://73h.de/index.html"/>
+    <meta property="og:description"
+          content="Webdesign, Entwicklung, Softwareentwicklung, Digitalisierung, Beratung, Social Media, SEO"/>
+    <meta property="og:locale" content="de_DE"/>
+    <meta property="og:image" content="{{url_for('static', filename='apple-touch-icon.png')}}"/>
+    <link rel="apple-touch-icon" href="{{url_for('static', filename='apple-touch-icon.png')}}"/>
+    <link rel="apple-touch-startup-image" href="{{url_for('static', filename='apple-touch-icon.png')}}"/>
+    <link rel="icon" href="{{url_for('static', filename='favicon.ico')}}" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles.css')}}" media="all"/>
+    <link rel="image_src" type="image/jpeg" href="{{url_for('static', filename='apple-touch-icon.png')}}"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='scripts.js')}}"></script>
 </head>
 <body>
-73 ... 42
+<div class="photo">
+    <div class="social">
+        <a href="mailto:heikoschmidt@hotmail.com" target="_blank">
+            <img src="{{url_for('static', filename='email-icon.png')}}" alt="mail"/>
+        </a>
+        <a href="skype:haako.de?chat" target="_blank">
+            <img src="{{url_for('static', filename='skype-icon.png')}}" alt="skype"/>
+        </a>
+        <a href="https://www.xing.com/profile/Heiko_Schmidt" target="_blank">
+            <img src="{{url_for('static', filename='xing-icon.png')}}" alt="xing"/>
+        </a>
+        <a href="https://www.linkedin.com/pub/heiko-schmidt/6b/667/b60" target="_blank">
+            <img src="{{url_for('static', filename='linkedin-icon.png')}}" alt="linkedin"/>
+        </a>
+        <a href="https://twitter.com/Haako_de" target="_blank">
+            <img src="{{url_for('static', filename='twitter-icon.png')}}" alt="twitter"/>
+        </a>
+        <a href="https://de-de.facebook.com/haako.de" target="_blank">
+            <img src="{{url_for('static', filename='facebook-icon.png')}}" alt="facebook"/>
+        </a>
+        <a href="https://github.com/73h" target="_blank">
+            <img src="{{url_for('static', filename='github-icon.png')}}" alt="github"/>
+        </a>
+    </div>
+    <img src="{{url_for('static', filename='avatar_heiko_1024.jpg')}}" data="static/avatar_heiko_1024.jpg" id="photo"
+         alt="Heiko Schmidt">
+    <div class="meta">
+        <div class="title">Heiko Schmidt</div>
+    </div>
+    Kuckswinkel 4, 16727 Oberkrämer<br>
+    Icons from https://uiconstock.com/
+</div>
 </body>
 </html>
