@@ -3,8 +3,8 @@ import secrets
 from flask import Flask
 
 from models.constants import HOSTNAME
-from sites.blog.blog import app_blog
-from sites.home.home import app_home
+from sites.blog.blog import site_blog
+from sites.home.home import site_home
 
 
 def create_app():
@@ -13,7 +13,7 @@ def create_app():
     app.config['CSRF_ENABLED'] = True
     app.secret_key = secrets.token_hex(24)
 
-    app.register_blueprint(app_home)
-    app.register_blueprint(app_blog)
+    app.register_blueprint(site_home)
+    app.register_blueprint(site_blog)
 
     return app

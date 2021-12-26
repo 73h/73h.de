@@ -5,6 +5,8 @@
     <title>blog of 73h.de</title>
 </head>
 <body>
-...
+{% for entry in entries %}
+<div>{{ entry.created }} / {{ entry.title }} / {{ entry.content }}</div>
+{% endfor %}
 </body>
 </html>

@@ -11,6 +11,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Set Mongo Connection Secret
+        run: perl -pi -e 's/_MONGO_CONNECTION_STRING_/$ENV{MONGO_CONNECTION_STRING}/' app.yaml
+        env:
+          MONGO_CONNECTION_STRING: ${{ secrets.MONGO_CONNECTION_STRING }}
       - id: 'auth'
         uses: 'google-github-actions/auth@v0'
         with:
