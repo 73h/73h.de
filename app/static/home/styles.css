@@ -4,7 +4,7 @@
     /*font-family: "Loved by the King", "Arial";*/
     /*font-family: "Arial";*/
     font-family: 'Bai Jamjuree', sans-serif;
-    color: #8C9299;
+    color: #ccc;
 }
 
 html {
@@ -22,24 +22,11 @@ body {
     -ms-flex-align: center;
     align-items: center;
     justify-content: center;
-    margin: auto 20px;
-    background-color: gray;
-    background-image: url(background_blur.jpg);
+    margin: auto 2em;
+    background-color: #323232;
     background-size: cover;
     background-position: center;
     height: 100%;
-}
-
-a {
-    color: #fff;
-    text-decoration: none;
-    cursor: default;
-}
-
-a:hover {
-    color: #FF003F;
-    text-decoration: none;
-    cursor: default;
 }
 
 .photo {
@@ -77,23 +64,28 @@ a:hover {
 }
 
 .social {
-    margin-bottom: 6px;
+    margin-bottom: 2em;
 }
 
 .social img {
-    width: 2em;
     margin-right: .2em;
     cursor: pointer;
-    -webkit-filter: grayscale(100%);
-    -moz-filter: grayscale(100%);
-    -o-filter: grayscale(100%);
-    filter: grayscale(100%);
+    opacity: 0.8;
 }
 
 .social img:hover {
-    -webkit-filter: grayscale(0%);
-    -moz-filter: grayscale(0%);
-    -o-filter: grayscale(0%);
-    filter: grayscale(0%);
-    transition-duration: 0.4s;
+    opacity: 1;
+}
+
+.footer {
+    margin-top: 2em;
+}
+
+.icons8 svg {
+    width: 1.2em;
+    height: 1.2em;
+}
+
+.scheme-toggle .icon, .icons8 .icon, #users svg .icon {
+    fill: #ccc;
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xml:lang="de" lang="de">
+<html xml:lang="en" lang="en">
 <head>
     <title>Heiko Schmidt</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
@@ -28,33 +28,23 @@
     <link rel="icon" href="{{url_for('static', filename='home/favicon.ico')}}" type="image/x-icon"/>
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='home/styles.css')}}" media="all"/>
     <link rel="image_src" type="image/jpeg" href="{{url_for('static', filename='home/apple-touch-icon.png')}}"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script type="text/javascript" src="{{url_for('static', filename='home/scripts.js')}}"></script>
 </head>
 <body>
 <div class="photo">
     <div class="social">
-        <a href="mailto:heikoschmidt@hotmail.com" target="_blank">
-            <img src="{{url_for('static', filename='home/email-icon.png')}}" alt="mail"/>
-        </a>
-        <a href="skype:haako.de?chat" target="_blank">
-            <img src="{{url_for('static', filename='home/skype-icon.png')}}" alt="skype"/>
-        </a>
-        <a href="https://www.xing.com/profile/Heiko_Schmidt" target="_blank">
-            <img src="{{url_for('static', filename='home/xing-icon.png')}}" alt="xing"/>
-        </a>
-        <a href="https://www.linkedin.com/pub/heiko-schmidt/6b/667/b60" target="_blank">
-            <img src="{{url_for('static', filename='home/linkedin-icon.png')}}" alt="linkedin"/>
-        </a>
-        <a href="https://twitter.com/Haako_de" target="_blank">
-            <img src="{{url_for('static', filename='home/twitter-icon.png')}}" alt="twitter"/>
-        </a>
-        <a href="https://de-de.facebook.com/haako.de" target="_blank">
-            <img src="{{url_for('static', filename='home/facebook-icon.png')}}" alt="facebook"/>
-        </a>
-        <a href="https://github.com/73h" target="_blank">
-            <img src="{{url_for('static', filename='home/github-icon.png')}}" alt="github"/>
-        </a>
+        <a href="https://github.com/73h" target="_blank"><img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABhElEQVRIidWVO0sDURCFZxNTpFksBElhYWmEoOBPEGIMYvBRa+mvEDWgaGlpp1haWGhhZ20bfNtY+CwUG62Sz2LvwjKZ7KPMgS32zjln5g7DXJF+hxcXBPIiMiMiSyIyKSIjTvMmIlciciYip57ntTNnBqrAPcl4AupZjD1gE+ikMA/RAfaA2I6ECZoZjDWaSeZ1JZgAGsCtYXYHLAND6rzWy3yAoJ9RFFzMBypA0X0VwHexnJG4YCVoGFWOpmjpsKGbC+O5CHdRaR8lGMck/IjIgzrTXiLAtapiIYV5qJ1X2pZF+lQkP0MCX2m/wli0RTlDmxZ6/ouW6bMi2eNmY1b9f3QxgAN1zRdgLMkZKAOvSntiEWvGuP0B20DZ4I8DO46jsWIlyAEtR1gHziOCfYN/ZBgDvAPFrgRONA20gV+gBFw4QanHDSysJvV0wxF3E3h6RQAcxppHxFsEK/gGuIzhRXGMtYNixFWCxdXztXJFfANrpHkLDIM8MBUTrwODmY37Cv9EdvN1Fvo01QAAAABJRU5ErkJggg=="/></a>
+        <a href="mailto:contact@73h.de" target="_blank"><img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAA50lEQVRIie3RQUoDMRiG4aTuhHoAYTyDdOEdFISeoMteQTyBXsGtS1eCpxAEd7qWqQfowp3yuDDB0QnTDs6iSF8ICfn/fC9JQtiyMeAEC3+nxnFJ8DxAeOapJNjH9QDhdzgoCcZpnvq6Zl9qTJtZvwWvmKX1Li7xvkbwB66wl86e4qUkaF0Rh7jvCH/EUeOJb3KhSwBvOMMORphj2aO+UpB5wCTVK9ymUaW9Seppsa6A7zceN3pX/lHujU1By/qTOoRwntYXIYSqqznGGPsKepEFoyFDS/wvwWLA3LokmA8kqVPWlg3hE64ElbpGe3TxAAAAAElFTkSuQmCC"/></a>
+        <a href="skype:haako.de?chat" target="_blank"><img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABl0lEQVRIid3Vv2oVURDH8dkg3BQ2gmhiIVjkvoA2in+QKCISEJ9AH0DsBB8haBML8SqIjY2tYBuC4BvEBCVqTGOlGHPJH5GPxe6FZTl77k1io9MsZ+Y3852dOXAi/jvDCfSwhk0sYg4Tf6P4FfyUtm30sYElPMHl3XbeVjxnC+iOAujtofjAvuH8MMDaPgADyFQOsJlJvKMcYQdHcBGvEtr5HGCxBXChih/FDE5W5wIvE/rpNsBcQvyhFl+t+e9WvpuJnF4bYBJbifF0qvg5PMNH/MILfE0AlnJj6icSHmO8oetiVnpv6znAeiJB1elT3MDhmv5aQtvPAZYb4mWcwfOa7zfu13KaY9rC5CA+1mC8aZxXiqJ4GxG3I+JTLedYVXwsIsYbOZ2IuNf2B5cS3ZytYodwFdM4UPlutYz0S25MCw3xBh7gVAU5iNN4qLxNKdvOAbrK67kf+9y2gyiK4n1EXI+I761dDLfXQxWYwvweuv+B4yO3olxqD++U70Vf+fi0FR/9EcpAJ5RLXsVO9X20q87/GfsDeyklrnnijDcAAAAASUVORK5CYII="/></a>
+        <a href="https://www.xing.com/profile/Heiko_Schmidt" target="_blank"><img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABTElEQVRIid2VMUrEQBSG/1m3EFYFGyvdYrGw1ELRCyhaCBY2ItiJF/AEegBrCwttLD2BoIg3sBTEiYWFWCmImM8iLzAENzsksdkHgcz73/++yUyYkYYmgA3AUz88sJ73dQHAS5puaL7eOdctAmiouSTJOeckqVWzz5o16g6srLDW14H3tCjGABJg257zgvYDzJtvDviuAgBYNW0ceAnyZ4Hv6i9jLOABaJu+Z7lPYMZyy0BaBwCwaPoo8AEcB567fqZYwE2gHwKvwISNt0omFQVIgRXTJoE34MDGI2TLVwtwGWgnZJuc78dmWfMYQAr0LD8LfJH9mkuW6zDg3Ir5gmfgEXgPcveAs/qduoB+sWv1Drj9D0ACdMyzQLZ0jQIAjgLfRRmg6nGdSnqy9ylJY8WC/LhuB7lE8RdOS1KvRPdhYR77oVAjvPUakvgFm1HnLXqtYaYAAAAASUVORK5CYII="/></a>
+        <a href="https://www.linkedin.com/pub/heiko-schmidt/6b/667/b60" target="_blank"><img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABDElEQVRIie2TvUoDQRSFv7skpSAYtBHfQJAUgmXKqNgoYqGFBNKmSZf3yDv4ICHPkMLGSadPYOGx2LsyLO7kZxdtcpqdOdw53529DOy0iSRdSVpqewVJ/TjTSoAAHNfsM5jZSRVANcPzULOf3CxR9wo8A9MmoEB+g0hj9zJJn5sMIs5sJXgDSW/ABdDetul/ncEM6ABPkTcC9oEX4NbXZ8BiLXLpV07cyyLvyL126dxN1QxSNxCAmX1FXrE+lfQh6cH386qQFCClLnAAnHsT700DbHXJaoBBPoNfgotv5jWVwBTgUlIHeIy8O0l7wLXve5IOgftkl4X++h00ojJg2UBmSAGGNSHBM3ZaX989DvU6a50FhAAAAABJRU5ErkJggg=="/></a>
+        <a href="https://twitter.com/Haako_de" target="_blank"><img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABR0lEQVRIie2VvUoDURCFzw0JKP4XsgoJBJsUFr6Dpa2FNlZWNj6A+DRWGgIWImJhraVgZWcEsdHArpWFfBbr4nXY3yx2Od2dM3PO7N2ZXWmCqgA6wACIKI8IOAd6ZcTfKwhbjIBOnsGghniCvq/pjEEkaa7GDUtS5JxbSA4NQ/riSHpNEfiQdCBpXdKupDtJFx4/n2ltHvUeWAMeTXzf1DSBI+AzSShr8Aw4YBo4BoY/8W5K3YNfWNZgBOwYPgCmTKwFfI1rMJOZ/FuzYcfI5+1L9rEk6QQICjy2i5rwu7F4AlZy8pdJWcwqBgC3wGZKbgu4TCsoa/ACnAKHwKzJWwWuMhr6Y9DMubFA8aYPJbWBhqSupC1Je8pbKA//8akInXOLycFO0U1NcUm6zmSAHvH8j4s3oJ1rT/xP6ANhBeEQOCsUnyAN32IZwe5M8d65AAAAAElFTkSuQmCC"/></a>
+
     </div>
     <img src="{{url_for('static', filename='home/avatar_heiko_1024.jpg')}}" data="static/avatar_heiko_1024.jpg"
          id="photo"
@@ -62,8 +52,9 @@
     <div class="meta">
         <div class="title">Heiko Schmidt</div>
     </div>
-    Kuckswinkel 4, 16727 Oberkrämer<br>
-    Icons from https://uiconstock.com/
-</div>
+    <div class="footer">
+        <p>Oberkrämer, Germany (near Berlin)</p>
+        {% include "footer-icons8.html" %}
+    </div>
 </body>
 </html>
