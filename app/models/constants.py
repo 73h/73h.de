@@ -1,1 +1,1 @@
-HOSTNAME = '73h.de'
+HOSTNAME = "73h.de"
