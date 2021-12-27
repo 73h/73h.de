@@ -23,6 +23,6 @@ env_variables:
   MONGO_CONNECTION_STRING: "_MONGO_CONNECTION_STRING_"
 
 handlers:
-- url: /.*
-  secure: always
-  redirect_http_response_code: 301
+  - url: /.*
+    secure: always
+    redirect_http_response_code: 301
