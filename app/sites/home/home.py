@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 
-from models.constants import HOSTNAME
+from utils.config import HOSTNAME
 
 site_home = Blueprint("home", __name__)
 

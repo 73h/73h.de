@@ -1,0 +1,194 @@
+:root {
+    color-scheme: light dark;
+    --text-color-dark: #ddd;
+    --text-color-light: #333;
+    --bkg-color-dark: #121212;
+    --bkg-color-light: #fff;
+    --bkg-color-nuance-dark: #222;
+    --bkg-color-nuance-light: #efefef;
+    --bkg-color-inverted-dark: #ddd;
+    --bkg-color-inverted-light: #323232;
+}
+
+body {
+    --text-color: var(--text-color-light);
+    --text-color-inverted: var(--text-color-dark);
+    --bkg-color: var(--bkg-color-light);
+    --bkg-color-inverted: var(--bkg-color-inverted-light);
+    --bkg-color-nuance: var(--bkg-color-nuance-light);
+    --visible-light: inline;
+    --visible-dark: none;
+}
+
+body.dark-theme {
+    --text-color: var(--text-color-dark);
+    --text-color-inverted: var(--text-color-light);
+    --bkg-color: var(--bkg-color-dark);
+    --bkg-color-inverted: var(--bkg-color-inverted-dark);
+    --bkg-color-nuance: var(--bkg-color-nuance-dark);
+    --visible-light: none;
+    --visible-dark: inline;
+}
+
+@media (prefers-color-scheme: dark) {
+
+    body {
+        --text-color: var(--text-color-dark);
+        --text-color-inverted: var(--text-color-light);
+        --bkg-color: var(--bkg-color-dark);
+        --bkg-color-inverted: var(--bkg-color-inverted-dark);
+        --bkg-color-nuance: var(--bkg-color-nuance-dark);
+        --visible-light: none;
+        --visible-dark: inline;
+    }
+
+    body.light-theme {
+        --text-color: var(--text-color-light);
+        --text-color-inverted: var(--text-color-dark);
+        --bkg-color: var(--bkg-color-light);
+        --bkg-color-inverted: var(--bkg-color-inverted-light);
+        --bkg-color-nuance: var(--bkg-color-nuance-light);
+        --visible-light: inline;
+        --visible-dark: none;
+    }
+
+}
+
+.icons8 svg {
+    width: 1.2em;
+    height: 1.2em;
+}
+
+.scheme-toggle svg {
+    width: 3em;
+    height: 3em;
+}
+
+.scheme-toggle .moon {
+    display: var(--visible-dark);
+}
+
+.scheme-toggle .sun {
+    display: var(--visible-light);
+}
+
+.scheme-toggle .icon, .icons8 .icon, #users svg .icon {
+    fill: var(--text-color);
+}
+
+input {
+    background: var(--bkg-color);
+}
+
+body {
+    margin: 0;
+}
+
+* {
+    font-family: 'Share Tech Mono', monospace;
+    color: var(--text-color);
+    transition: color .5s, background .5s, fill .5s;
+}
+
+.scheme-toggle {
+    float: right;
+    cursor: pointer;
+    margin-right: 2.5em;
+}
+
+label {
+    font-size: 1.2em;
+}
+
+input, button, select, option {
+    font-size: 1.2em;
+    padding: .5em;
+    margin-top: 0.5em;
+    border: dotted 1px var(--text-color);
+    background: var(--bkg-color);
+    color: var(--text-color);
+}
+
+button {
+    cursor: pointer;
+    background: var(--bkg-color-inverted);
+    color: var(--text-color-inverted);
+}
+
+button span {
+    color: var(--text-color-inverted);
+}
+
+button:hover {
+    cursor: pointer;
+    background: var(--bkg-color);
+    color: var(--text-color);
+}
+
+button:hover span {
+    color: var(--text-color);
+}
+
+button svg {
+    margin: -.3em 0;
+    width: 1.2em;
+    height: 1.2em;
+}
+
+button .icon {
+    fill: var(--text-color-inverted);
+}
+
+button:hover .icon {
+    fill: var(--text-color);
+}
+
+button:disabled {
+    display: none !important;
+}
+
+main, body {
+    background: var(--bkg-color-nuance);
+}
+
+header h1, header h2, header p, footer p, main .row {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 900px;
+}
+
+header, footer, main {
+    padding: 2.5em 0;
+}
+
+header, footer {
+    background: var(--bkg-color);
+}
+
+h1 {
+    margin: 0;
+}
+
+h2 {
+    font-size: 1.3em;
+}
+
+.svg-templates {
+    display: none;
+}
+
+@media only screen and (max-width: 900px) {
+
+    header, footer, main {
+        padding: 1.5em 1.5em;
+    }
+
+    .scheme-toggle {
+        margin-right: 0;
+    }
+
+    button span {
+        display: none;
+    }
+
+}

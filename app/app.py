@@ -2,9 +2,9 @@ import secrets
 
 from flask import Flask
 
-from models.constants import HOSTNAME
 from sites.blog.blog import site_blog
 from sites.home.home import site_home
+from utils.config import HOSTNAME
 
 
 def create_app():
