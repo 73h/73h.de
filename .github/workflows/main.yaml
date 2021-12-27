@@ -10,7 +10,7 @@ jobs:
       id-token: 'write'
     steps:
       - uses: actions/checkout@v2
-      - run: perl -pi -e 's/_MONGO_CONNECTION_STRING_/$ENV{MONGO_CONNECTION_STRING}/' app.yaml
+      - uses: 73h/gae-app-yaml-replace-env-variables@v0.1
         env:
           MONGO_CONNECTION_STRING: ${{ secrets.MONGO_CONNECTION_STRING }}
       - uses: 'google-github-actions/auth@v0'
