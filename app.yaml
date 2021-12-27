@@ -22,4 +22,5 @@ handlers:
 automatic_scaling:
   max_instances: 1
 env_variables:
+  ENV: production
   MONGO_CONNECTION_STRING: $MONGO_CONNECTION_STRING
