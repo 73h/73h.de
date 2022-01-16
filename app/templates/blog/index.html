@@ -1,44 +1,8 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <title>blog 73</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <meta name="title" content="blog 73"/>
-    <meta name="description" content="Heiko Schmidt, Development, Softwareentwicklung, Softwarearchitektur"/>
-    <meta name="robots" content="index, follow"/>
-    <meta name="author" content="Heiko Schmidt"/>
-    <meta name="date" content="2021-12-28"/>
-    <meta name="language" content="de"/>
-    <meta name="rights" lang="de" content="Alle Rechte liegen beim Autor"/>
-    <meta name="keywords" content="Heiko Schmidt, Development"/>
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
-    <meta property="og:title" content="blog 73"/>
-    <meta property="og:site_name" content="blog 73"/>
-    <meta property="og:url" content="https://blog.73h.de"/>
-    <meta property="og:description" content="Heiko Schmidt, Development, Softwareentwicklung, Softwarearchitektur"/>
-    <meta property="og:locale" content="de_DE"/>
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='main.css')}}" media="all"/>
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='blog/blog.css')}}" media="all"/>
-</head>
-<body>
-<header>
-    {% include "toogle-scheme.html" %}
-    <h1>Blog 73</h1>
-    <h2>h2.text</h2>
-</header>
-<main>
-    <div class="row">
-        {% for entry in entries %}
-        <div class="entry">{{ entry.created }} / {{ entry.title }} / {{ entry.content }}</div>
-        {% endfor %}
-    </div>
-</main>
-<footer>
-    <p>p.footer</p>
-    {% include "footer-icons8.html" %}
-</footer>
-<script type="text/javascript" src="{{url_for('static', filename='main.js')}}"></script>
-</body>
-</html>
+{% extends "blog/base.html" %}
+{% block content %}
+<div class="row">
+    {% for entry in entries %}
+    <div class="entry">{{ entry.created }} / {{ entry.title }} / {{ entry.content }}</div>
+    {% endfor %}
+</div>
+{% endblock %}

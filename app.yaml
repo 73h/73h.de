@@ -24,3 +24,4 @@ automatic_scaling:
 env_variables:
   APP_ENV: production
   MONGO_CONNECTION_STRING: $MONGO_CONNECTION_STRING
+  BLOG_CREDENTIALS: $BLOG_CREDENTIALS
