@@ -25,7 +25,9 @@
 <body>
 <header>
     {% include "toogle-scheme.html" %}
-    <h1>Blog 73</h1>
+    <a href="{{ url_for('blog.index') }}">
+        <h1>Blog 73</h1>
+    </a>
     <h2>{{ title }}</h2>
 </header>
 <main>
@@ -33,7 +35,17 @@
     {% endblock %}
 </main>
 <footer>
-    <p>p.footer</p>
+    <p>
+        <a href="{{ url_for('blog.index') }}">Blog 73</a>
+        : <a href="{{ url_for('blog.datenschutz') }}">Datenschutz</a>
+        : <a href="{{ url_for('blog.impressum') }}">Impressum</a>
+        {% if not logged_in %}
+        : <a href="{{ url_for('blog.login_get') }}">Login</a>
+        {% endif %}
+        {% if logged_in %}
+        : <a href="{{ url_for('blog.logout') }}">Logout</a>
+        {% endif %}
+    </p>
     {% include "footer-icons8.html" %}
 </footer>
 <script type="text/javascript" src="{{url_for('static', filename='main.js')}}"></script>

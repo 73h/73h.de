@@ -1,6 +1,7 @@
 {% extends "blog/base.html" %}
 {% block content %}
 <div class="row">
+    {% if not logged_in %}
     <form method="POST" action="/login">
         <h3>Login</h3>
         <p>
@@ -22,5 +23,9 @@
             <button type="submit">Login</button>
         </p>
     </form>
+    {% endif %}
+    {% if logged_in %}
+    Hallo {{ user }}.
+    {% endif %}
 </div>
 {% endblock %}
