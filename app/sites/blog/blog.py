@@ -1,4 +1,4 @@
-from flask import Blueprint, flash, request, redirect, url_for
+from flask import Blueprint, flash, request, redirect, url_for, abort
 
 from controller.blog.database import db
 from controller.blog.login import user_login, user_logout
@@ -13,6 +13,15 @@ def index():
     db.connect()
     entries = db.get_entries()
     return render(site="index", title="A small tech blog.", entries=entries)
+
+
+@site_blog.get("/entry/<_id>", host=f"blog.{HOSTNAME}")
+def get_entry(_id: str):
+    db.connect()
+    entry = db.get_entry(_id)
+    if entry is not None:
+        return render(site="entry", title="A small tech blog.", entry=entry)
+    abort(404)
 
 
 @site_blog.get("/login", host=f"blog.{HOSTNAME}")
