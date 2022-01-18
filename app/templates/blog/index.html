@@ -7,7 +7,9 @@
         <h3>
             <a href="{{ url_for('blog.get_entry', url = entry.url) }}" title="{{ entry.title }}">{{ entry.title }}</a>
         </h3>
-        <p>{{ entry.get_markdown()|safe }}</p>
+        <div class="content">
+            {{ entry.get_markdown()|safe }}
+        </div>
     </div>
     {% endfor %}
 </div>

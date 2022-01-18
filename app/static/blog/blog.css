@@ -11,3 +11,17 @@
     font-size: 1.4em;
     margin-top: 0;
 }
+
+.entry .content img {
+    max-width: 100%;
+}
+
+.entry .content code {
+    margin: .6em 0;
+    white-space: pre;
+    display: inline-block;
+    padding: .6em .8em;
+    border: solid 1px var(--bkg-color-nuance);
+    background: var(--bkg-color-nuance);
+    box-shadow: 0 0 .5em .5em var(--bkg-color);
+}

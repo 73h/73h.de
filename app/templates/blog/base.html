@@ -21,6 +21,12 @@
     <meta property="og:locale" content="de_DE"/>
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='main.css')}}" media="all"/>
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='blog/blog.css')}}" media="all"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/yaml.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/json.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/python.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/javascript.min.js"></script>
 </head>
 <body>
 <header>
@@ -46,5 +52,10 @@
     {% include "footer-icons8.html" %}
 </footer>
 <script type="text/javascript" src="{{url_for('static', filename='main.js')}}"></script>
+<script>
+    document.querySelectorAll('code').forEach(el => {
+        hljs.highlightElement(el);
+    });
+</script>
 </body>
 </html>

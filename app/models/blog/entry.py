@@ -1,4 +1,5 @@
 import datetime
+import re
 
 import markdown2
 
@@ -13,7 +14,9 @@ class Entry:
         self.url = url
 
     def get_markdown(self) -> str:
-        return markdown2.markdown(self.content)
+        markdown_text = markdown2.markdown(self.content)
+        markdown_text = re.sub(r'\<code\>\*([a-z]+)\*', r'<code class=language-\1">', markdown_text)
+        return markdown_text
 
     def get_created(self) -> str:
         return self.created.strftime("%d.%m.%Y, %H:%M") + " Uhr"
