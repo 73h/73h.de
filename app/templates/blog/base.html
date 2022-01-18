@@ -25,9 +25,7 @@
 <body>
 <header>
     {% include "toogle-scheme.html" %}
-    <a href="{{ url_for('blog.index') }}">
-        <h1>Blog 73</h1>
-    </a>
+    <h1><a href="{{ url_for('blog.index') }}" title="{{ title }}">Blog 73</a></h1>
     <h2>{{ title }}</h2>
 </header>
 <main>
@@ -36,9 +34,8 @@
 </main>
 <footer>
     <p>
-        <a href="{{ url_for('blog.index') }}">Blog 73</a>
-        : <a href="{{ url_for('blog.datenschutz') }}">Datenschutz</a>
-        : <a href="{{ url_for('blog.impressum') }}">Impressum</a>
+        <a href="{{ url_for('blog.datenschutz') }}" title="Datenschutz">Datenschutz</a>
+        : <a href="{{ url_for('blog.impressum') }}" title="Impressum">Impressum</a>
         {% if not logged_in %}
         : <a href="{{ url_for('blog.login_get') }}">Login</a>
         {% endif %}

@@ -15,10 +15,10 @@ def index():
     return render(site="index", title="A small tech blog.", entries=entries)
 
 
-@site_blog.get("/entry/<_id>", host=f"blog.{HOSTNAME}")
-def get_entry(_id: str):
+@site_blog.get("/article/<url>", host=f"blog.{HOSTNAME}")
+def get_entry(url: str):
     db.connect()
-    entry = db.get_entry(_id)
+    entry = db.get_entry(url)
     if entry is not None:
         return render(site="entry", title="A small tech blog.", entry=entry)
     abort(404)

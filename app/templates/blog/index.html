@@ -2,9 +2,13 @@
 {% block content %}
 <div class="row">
     {% for entry in entries %}
-    <a href="{{ url_for('blog.get_entry', _id = entry.get_id()) }}">
-        <div class="entry">{{ entry.get_created() }} / {{ entry.title }} / {{ entry.content }}</div>
-    </a>
+    <div class="entry">
+        <p class="created">{{ entry.get_created() }}</p>
+        <h3>
+            <a href="{{ url_for('blog.get_entry', url = entry.url) }}" title="{{ entry.title }}">{{ entry.title }}</a>
+        </h3>
+        <p>{{ entry.get_markdown()|safe }}</p>
+    </div>
     {% endfor %}
 </div>
 {% endblock %}

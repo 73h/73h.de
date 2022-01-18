@@ -2,7 +2,6 @@ import os
 from typing import Optional
 
 import pymongo
-from bson import ObjectId
 
 from models.blog.entries import Entries
 from models.blog.entry import Entry
@@ -23,8 +22,8 @@ class Database:
         entries = list(self.db.entries.find())
         return Entries(entries).entries
 
-    def get_entry(self, _id: str) -> Optional[Entry]:
-        entries = list(self.db.entries.find({"_id": ObjectId(_id)}))
+    def get_entry(self, url: str) -> Optional[Entry]:
+        entries = list(self.db.entries.find({"url": url}))
         if len(entries) == 1:
             return Entry(**entries[0])
         return None
