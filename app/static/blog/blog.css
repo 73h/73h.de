@@ -24,4 +24,9 @@
     border: solid 1px var(--bkg-color-nuance);
     background: var(--bkg-color-nuance);
     box-shadow: 0 0 .5em .5em var(--bkg-color);
+    font-size: 1em !important;
+}
+
+.entry .content code span {
+    font-size: 1em !important;
 }
