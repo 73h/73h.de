@@ -19,11 +19,11 @@ class Database:
             self.db = client[DATABASE]
 
     def get_articles(self) -> list:
-        articles = list(self.db.entries.find())
+        articles = list(self.db.articles.find())
         return Articles(articles).articles
 
     def get_article(self, url: str) -> Optional[Article]:
-        articles = list(self.db.entries.find({"url": url}))
+        articles = list(self.db.articles.find({"url": url}))
         if len(articles) == 1:
             return Article(**articles[0])
         return None
