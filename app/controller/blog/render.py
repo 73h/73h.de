@@ -1,13 +1,14 @@
 from flask import render_template
 
 from controller.blog.login import is_user_logged_in, get_logged_in_user
-from utils.config import PROTOCOL, HOSTNAME
+from utils.http import Http
 
 
-def get_url(site: str) -> str:
-    url = f"{PROTOCOL}blog.{HOSTNAME}"
+def get_url(site: str = "") -> str:
+    http = Http()
+    url = http.url
     if site != "index":
-        url = f"{url}/{site}"
+        url = f"{http.url}/{site}"
     return url
 
 

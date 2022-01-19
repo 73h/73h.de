@@ -4,7 +4,7 @@ import re
 import markdown2
 
 
-class Entry:
+class Article:
 
     def __init__(self, _id: str, title: str, content: str, created: datetime, url: str):
         self._id = _id

@@ -3,8 +3,8 @@ from typing import Optional
 
 import pymongo
 
-from models.blog.entries import Entries
-from models.blog.entry import Entry
+from models.blog.article import Article
+from models.blog.articles import Articles
 from utils.config import DATABASE
 
 
@@ -18,14 +18,14 @@ class Database:
             client = pymongo.MongoClient(os.environ.get("MONGO_CONNECTION_STRING"), tlsAllowInvalidCertificates=True)
             self.db = client[DATABASE]
 
-    def get_entries(self) -> list:
-        entries = list(self.db.entries.find())
-        return Entries(entries).entries
+    def get_articles(self) -> list:
+        articles = list(self.db.entries.find())
+        return Articles(articles).articles
 
-    def get_entry(self, url: str) -> Optional[Entry]:
-        entries = list(self.db.entries.find({"url": url}))
-        if len(entries) == 1:
-            return Entry(**entries[0])
+    def get_article(self, url: str) -> Optional[Article]:
+        articles = list(self.db.entries.find({"url": url}))
+        if len(articles) == 1:
+            return Article(**articles[0])
         return None
 
 
