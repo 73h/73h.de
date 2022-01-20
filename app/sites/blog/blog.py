@@ -8,7 +8,6 @@ from controller.blog.login import user_login, user_logout, is_user_logged_in
 from controller.blog.render import render
 from models.blog.article import Article
 from utils.config import HOSTNAME
-from utils.convert import url_fix
 from utils.http import Http
 
 site_blog = Blueprint("blog", __name__)
@@ -40,7 +39,7 @@ def post_article(url: str):
             db.delete_article(article)
             return redirect(url_for('blog.index'))
         article.title = request.form.get('title')
-        article.url = url_fix(article.title)
+        article.update_url()
         article.content = request.form.get('content')
         article.published = request.form.get('published') is not None
         if not db.update_article(article):
@@ -55,7 +54,7 @@ def post_article(url: str):
 def add_article():
     now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     article = Article(title=now, content="")
-    article.url = url_fix(article.title)
+    article.update_url()
     if not db.insert_article(article):
         flash('Sorry, that did not work.')
         return redirect(url_for('blog.index'))

@@ -32,6 +32,14 @@ class Article:
     def id(self):
         return self._id
 
+    def update_url(self):
+        url = self.title.lower()
+        url = url.replace("ä", "ae")
+        url = url.replace("ö", "ae")
+        url = url.replace("ü", "ae")
+        url = url.replace("ß", "ss")
+        self.url = re.sub(r"[^a-z0-9-]+", "-", url)
+
     def get_save_object(self) -> dict:
         return {
             "title": self.title,
