@@ -1,6 +1,15 @@
 {% extends "blog/base.html" %}
 {% block content %}
 <div class="row">
+    {% if logged_in %}
+    <div class="add-article">
+        <form method="POST" action="{{ url_for('blog.add_article') }}">
+            <p>
+                <button type="submit">Add article</button>
+            </p>
+        </form>
+    </div>
+    {% endif %}
     {% for article in articles %}
     <div class="article">
         <p class="created">{{ article.get_created() }}</p>

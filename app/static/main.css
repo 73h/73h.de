@@ -76,7 +76,7 @@ body.dark-theme {
     fill: var(--text-color);
 }
 
-input {
+input, textarea {
     background: var(--bkg-color);
 }
 
@@ -100,7 +100,7 @@ label {
     font-size: 1.2em;
 }
 
-input, button, select, option {
+input, button, select, option, textarea {
     font-size: 1.2em;
     padding: .5em;
     margin-top: 0.5em;

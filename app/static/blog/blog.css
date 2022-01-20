@@ -24,3 +24,16 @@
     background: var(--bkg-color-nuance);
     box-shadow: 0 0 .5em .5em var(--bkg-color);
 }
+
+.edit-article input[type="text"], .edit-article textarea {
+    width: 100%;
+}
+
+.edit-article textarea {
+    height: 30em;
+    font-size: 1em;
+}
+
+.edit-article, .add-article {
+    margin-bottom: 3em;
+}

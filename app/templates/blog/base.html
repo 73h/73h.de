@@ -39,7 +39,7 @@
         <a href="{{ url_for('blog.datenschutz') }}" title="Datenschutz">Datenschutz</a>
         : <a href="{{ url_for('blog.impressum') }}" title="Impressum">Impressum</a>
         {% if not logged_in %}
-        : <a href="{{ url_for('blog.login_get') }}">Login</a>
+        : <a href="{{ url_for('blog.get_login') }}">Login</a>
         {% endif %}
         {% if logged_in %}
         : <a href="{{ url_for('blog.logout') }}">Logout</a>

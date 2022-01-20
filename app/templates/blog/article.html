@@ -1,6 +1,39 @@
 {% extends "blog/base.html" %}
 {% block content %}
 <div class="row">
+    {% if logged_in %}
+    <div class="edit-article">
+        <form method="POST" action="{{ url_for('blog.post_article', url = article.url) }}">
+            <p>
+                <label for="title">title</label><br>
+                <input type="text" placeholder="title" id="title" name="title" value="{{ article.title }}">
+            </p>
+            <p>
+                <label for="content">content</label><br>
+                <textarea placeholder="content" id="content" name="content">{{ article.content }}</textarea>
+            </p>
+            <p>
+                <label for="published">published</label><br>
+                <input type="checkbox" id="published" name="published" value="published" {{
+                       article.get_published_state() }}>
+            </p>
+            <p>
+                <label for="delete">delete</label><br>
+                <input type="checkbox" id="delete" name="delete" value="delete">
+            </p>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <p class="error">
+                {{ messages[0] }}
+            </p>
+            {% endif %}
+            {% endwith %}
+            <p>
+                <button type="submit">Save</button>
+            </p>
+        </form>
+    </div>
+    {% endif %}
     <div class="article">
         <p class="created">
             {{ article.get_created() }}

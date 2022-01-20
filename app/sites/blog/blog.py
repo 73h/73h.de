@@ -1,10 +1,14 @@
+import datetime
+
 from flask import Blueprint, flash, request, redirect, url_for, abort, Response, make_response, \
     render_template
 
 from controller.blog.database import db
-from controller.blog.login import user_login, user_logout
+from controller.blog.login import user_login, user_logout, is_user_logged_in
 from controller.blog.render import render
+from models.blog.article import Article
 from utils.config import HOSTNAME
+from utils.convert import url_fix
 from utils.http import Http
 
 site_blog = Blueprint("blog", __name__)
@@ -14,7 +18,7 @@ host = f"blog.{HOSTNAME}"
 @site_blog.get("/", host=host)
 def index():
     db.connect()
-    articles = db.get_articles()
+    articles = db.get_articles(with_unpublished=is_user_logged_in())
     return render(site="index", title="A small tech blog.", articles=articles)
 
 
@@ -27,16 +31,47 @@ def get_article(url: str):
     abort(404)
 
 
+@site_blog.post("/article/<url>", host=host)
+def post_article(url: str):
+    db.connect()
+    article = db.get_article(url)
+    if article is not None:
+        if request.form.get('delete') is not None:
+            db.delete_article(article)
+            return redirect(url_for('blog.index'))
+        article.title = request.form.get('title')
+        article.url = url_fix(article.title)
+        article.content = request.form.get('content')
+        article.published = request.form.get('published') is not None
+        if not db.update_article(article):
+            flash('Sorry, that did not work.')
+            article = db.get_article(url)
+            return render(site="article", title="A small tech blog.", article=article)
+        return redirect(url_for('blog.get_article', url=article.url))
+    abort(404)
+
+
+@site_blog.post("/add-article", host=host)
+def add_article():
+    now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    article = Article(title=now, content="")
+    article.url = url_fix(article.title)
+    if not db.insert_article(article):
+        flash('Sorry, that did not work.')
+        return redirect(url_for('blog.index'))
+    return redirect(url_for('blog.get_article', url=article.url))
+
+
 @site_blog.get("/login", host=host)
-def login_get():
+def get_login():
     return render(site="login", title="Editor login.")
 
 
 @site_blog.post("/login", host=host)
-def login_post():
+def post_login():
     if user_login(request.form.get('user'), request.form.get('password')):
-        return redirect(url_for('blog.login_get'))
-    flash('Sorry, das ist falsch.')
+        return redirect(url_for('blog.get_login'))
+    flash('Sorry, this is wrong.')
     return render(site="login", title="Editor login.")
 
 
@@ -84,7 +119,7 @@ def sitemap():
     for article in articles:
         url = {
             "loc": f"{http.url}/article/{article.url}",
-            "lastmod": article.created.strftime("%Y-%m-%dT%H:%M:%SZ")
+            "lastmod": article.modified.strftime("%Y-%m-%dT%H:%M:%SZ")
         }
         dynamic_urls.append(url)
     xml = render_template("sitemap.xml", static_urls=static_urls, dynamic_urls=dynamic_urls, host_base=http.url)
