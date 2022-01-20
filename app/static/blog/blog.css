@@ -37,3 +37,7 @@
 .edit-article, .add-article {
     margin-bottom: 3em;
 }
+
+.smiley {
+    fill: var(--text-color);
+}
