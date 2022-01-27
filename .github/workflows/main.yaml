@@ -14,6 +14,8 @@ jobs:
         env:
           MONGO_CONNECTION_STRING: ${{ secrets.MONGO_CONNECTION_STRING }}
           BLOG_CREDENTIALS: ${{ secrets.BLOG_CREDENTIALS }}
+          TELEGRAM_BOT_API_TOKEN: ${{ secrets.TELEGRAM_BOT_API_TOKEN }}
+          TELEGRAM_BOT_API_CHAT_ID: ${{ secrets.TELEGRAM_BOT_API_CHAT_ID }}
       - uses: 'google-github-actions/auth@v0'
         with:
           credentials_json: '${{ secrets.GCP_SA_JSON }}'

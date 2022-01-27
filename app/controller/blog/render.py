@@ -18,4 +18,5 @@ def get_url(site: str = "", **kwargs) -> str:
 def render(site: str, **kwargs):
     logged_in = is_user_logged_in()
     user = get_logged_in_user().capitalize()
-    return render_template(f"blog/{site}.html", url=get_url(site, **kwargs), logged_in=logged_in, user=user, **kwargs)
+    return render_template(f"blog/{site}.html", asset_version="?v1", url=get_url(site, **kwargs), logged_in=logged_in,
+                           user=user, **kwargs)
