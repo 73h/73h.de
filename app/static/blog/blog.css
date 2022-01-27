@@ -67,3 +67,7 @@
     background-color: var(--bkg-color-nuance);
     box-shadow: 0 0 .5em .5em var(--bkg-color);
 }
+
+footer a {
+    padding-right: .3em;
+}
