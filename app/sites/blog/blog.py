@@ -6,6 +6,7 @@ from flask import Blueprint, flash, request, redirect, url_for, abort, Response,
 from controller.blog.database import db
 from controller.blog.login import user_login, user_logout, is_user_logged_in
 from controller.blog.render import render
+from controller.contact import check_email, check_message, send_contact_message
 from models.blog.article import Article
 from utils.config import HOSTNAME
 from utils.http import Http
@@ -18,7 +19,7 @@ host = f"blog.{HOSTNAME}"
 def index():
     db.connect()
     articles = db.get_articles(with_unpublished=is_user_logged_in())
-    return render(site="index", title="A small tech blog.", articles=articles)
+    return render(site="index", title="My little tech blog.", articles=articles)
 
 
 @site_blog.get("/article/<url>", host=host)
@@ -26,7 +27,7 @@ def get_article(url: str):
     db.connect()
     article = db.get_article(url)
     if article is not None:
-        return render(site="article", title="A small tech blog.", article=article)
+        return render(site="article", title="My little tech blog.", article=article)
     abort(404)
 
 
@@ -45,7 +46,7 @@ def post_article(url: str):
         if not db.update_article(article):
             flash('Sorry, that did not work.')
             article = db.get_article(url)
-            return render(site="article", title="A small tech blog.", article=article)
+            return render(site="article", title="My little tech blog.", article=article)
         return redirect(url_for('blog.get_article', url=article.url))
     abort(404)
 
@@ -90,6 +91,26 @@ def datenschutz():
     return render(site="datenschutz", title="Datenschutz.")
 
 
+@site_blog.get("/contact", host=host)
+def get_contact():
+    return render(site="contact", title="Contact.")
+
+
+@site_blog.post("/contact", host=host)
+def post_contact():
+    email_valid, error_email, email = check_email(request.form.get('email'))
+    message_valid, error_message, message = check_message(request.form.get('message'))
+    if not email_valid:
+        flash(f"<error>{error_email}</error>")
+    if not message_valid:
+        flash(f"<error>{error_message}</error>")
+    if email_valid and message_valid:
+        send_contact_message(email, message)
+        flash("<success>Thank you for your message.</success>")
+        return redirect(url_for('blog.get_contact'))
+    return render(site="contact", title="Contact.", email=email, message=message)
+
+
 @site_blog.route("/robots.txt", host=host)
 def noindex():
     http = Http()
@@ -106,7 +127,7 @@ def sitemap():
     static_urls.append({
         "loc": f"{http.url}"
     })
-    static_roots = ["datenschutz", "impressum"]
+    static_roots = ["datenschutz", "impressum", "contact"]
     for root in static_roots:
         url = {
             "loc": f"{http.url}/{str(root)}"

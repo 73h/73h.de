@@ -41,3 +41,15 @@
 .smiley {
     fill: var(--text-color);
 }
+
+.messages {
+    margin: 2em 0;
+}
+
+.messages error {
+    color: darkred;
+}
+
+.messages success {
+    color: darkgreen;
+}

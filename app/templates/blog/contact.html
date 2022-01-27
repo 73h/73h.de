@@ -1,0 +1,29 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<div class="row">
+    <form method="POST" action="{{ url_for('blog.post_contact') }}">
+        <h3>Contact me</h3>
+        <p>
+            <label for="email">Your email address</label><br>
+            <input type="text" placeholder="Email address" id="email" name="email" maxlength="100" value="{{ email }}">
+        </p>
+        <p>
+            <label for="message">Your message</label><br>
+            <textarea placeholder="Message" id="message" name="message" style="width: 100%;height: 6em;"
+                      maxlength="2000">{{ message }}</textarea>
+        </p>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <p class="messages">
+            {% for message in messages %}
+            {{ message|safe }} <br>
+            {% endfor %}
+        </p>
+        {% endif %}
+        {% endwith %}
+        <p>
+            <button type="submit">Submit</button>
+        </p>
+    </form>
+</div>
+{% endblock %}
