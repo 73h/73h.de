@@ -86,11 +86,6 @@ def impressum():
     return render(site="impressum", title="Impressum.")
 
 
-@site_blog.get("/datenschutz", host=host)
-def datenschutz():
-    return render(site="datenschutz", title="Datenschutz.")
-
-
 @site_blog.get("/contact", host=host)
 def get_contact():
     return render(site="contact", title="Contact.")
@@ -127,7 +122,7 @@ def sitemap():
     static_urls.append({
         "loc": f"{http.url}"
     })
-    static_roots = ["datenschutz", "impressum", "contact"]
+    static_roots = ["impressum", "contact"]
     for root in static_roots:
         url = {
             "loc": f"{http.url}/{str(root)}"
