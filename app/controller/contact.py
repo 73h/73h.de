@@ -27,6 +27,6 @@ def send_contact_message(email: str, message: str):
     url = f"https://api.telegram.org/bot{token}/sendMessage"
     data = {
         "chat_id": chat_id,
-        "text": f"email: {email}\r\nmessage:{message}"
+        "text": f"email: {email}\r\nmessage: {message}"
     }
     requests.post(url=url, data=data)
