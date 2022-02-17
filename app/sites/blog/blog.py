@@ -122,7 +122,7 @@ def sitemap():
     static_urls.append({
         "loc": f"{http.url}"
     })
-    static_roots = ["impressum", "contact"]
+    static_roots = ["impressum", "kontakt"]
     for root in static_roots:
         url = {
             "loc": f"{http.url}/{str(root)}"
