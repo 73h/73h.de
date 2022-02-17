@@ -19,7 +19,7 @@ host = f"blog.{HOSTNAME}"
 def index():
     db.connect()
     articles = db.get_articles(with_unpublished=is_user_logged_in())
-    return render(site="index", title="My little tech blog.", articles=articles)
+    return render(site="index", title="IT und mehr.", articles=articles)
 
 
 @site_blog.get("/article/<url>", host=host)
@@ -27,7 +27,7 @@ def get_article(url: str):
     db.connect()
     article = db.get_article(url)
     if article is not None:
-        return render(site="article", title="My little tech blog.", article=article)
+        return render(site="article", title="IT und mehr.", article=article)
     abort(404)
 
 
@@ -46,7 +46,7 @@ def post_article(url: str):
         if not db.update_article(article):
             flash('Sorry, that did not work.')
             article = db.get_article(url)
-            return render(site="article", title="My little tech blog.", article=article)
+            return render(site="article", title="IT und mehr.", article=article)
         return redirect(url_for('blog.get_article', url=article.url))
     abort(404)
 
@@ -64,7 +64,7 @@ def add_article():
 
 @site_blog.get("/login", host=host)
 def get_login():
-    return render(site="login", title="Editor login.")
+    return render(site="login", title="Redaktion.")
 
 
 @site_blog.post("/login", host=host)
@@ -72,7 +72,7 @@ def post_login():
     if user_login(request.form.get('user'), request.form.get('password')):
         return redirect(url_for('blog.get_login'))
     flash('Sorry, this is wrong.')
-    return render(site="login", title="Editor login.")
+    return render(site="login", title="Redaktion.")
 
 
 @site_blog.get("/logout", host=host)
@@ -86,12 +86,12 @@ def impressum():
     return render(site="impressum", title="Impressum.")
 
 
-@site_blog.get("/contact", host=host)
+@site_blog.get("/kontakt", host=host)
 def get_contact():
-    return render(site="contact", title="Contact.")
+    return render(site="contact", title="Kontakt.")
 
 
-@site_blog.post("/contact", host=host)
+@site_blog.post("/kontakt", host=host)
 def post_contact():
     email_valid, error_email, email = check_email(request.form.get('email'))
     message_valid, error_message, message = check_message(request.form.get('message'))
@@ -101,9 +101,9 @@ def post_contact():
         flash(f"<error>{error_message}</error>")
     if email_valid and message_valid:
         send_contact_message(email, message)
-        flash("<success>Thank you for your message.</success>")
+        flash("<success>Danke für Deine Nachricht.</success>")
         return redirect(url_for('blog.get_contact'))
-    return render(site="contact", title="Contact.", email=email, message=message)
+    return render(site="contact", title="Kontakt.", email=email, message=message)
 
 
 @site_blog.route("/robots.txt", host=host)

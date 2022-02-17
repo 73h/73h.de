@@ -2,14 +2,14 @@
 {% block content %}
 <div class="row">
     <form method="POST" action="{{ url_for('blog.post_contact') }}">
-        <h3>Contact me</h3>
+        <h3>Schreib mir</h3>
         <p>
-            <label for="email">Your email address</label><br>
-            <input type="text" placeholder="Email address" id="email" name="email" maxlength="100" value="{{ email }}">
+            <label for="email">Deine E-Mail-Adresse</label><br>
+            <input type="text" placeholder="E-Mail-Adresse" id="email" name="email" maxlength="100" value="{{ email }}">
         </p>
         <p>
-            <label for="message">Your message</label><br>
-            <textarea placeholder="Message" id="message" name="message" style="width: 100%;height: 6em;"
+            <label for="message">Deine Nachricht</label><br>
+            <textarea placeholder="Nachricht" id="message" name="message" style="width: 100%;height: 6em;"
                       maxlength="2000">{{ message }}</textarea>
         </p>
         {% with messages = get_flashed_messages() %}
@@ -22,7 +22,7 @@
         {% endif %}
         {% endwith %}
         <p>
-            <button type="submit">Submit</button>
+            <button type="submit">Senden</button>
         </p>
     </form>
 </div>

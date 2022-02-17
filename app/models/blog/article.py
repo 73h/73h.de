@@ -28,7 +28,7 @@ class Article:
         return markdown_text
 
     def get_created(self) -> str:
-        return self.created.strftime("%Y-%m-%d, %H:%M")
+        return self.created.strftime("%d.%m.%Y, %H:%M")
 
     def get_published_state(self) -> str:
         return "checked" if self.published else ""

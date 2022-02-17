@@ -3,14 +3,14 @@
 <div class="row">
     {% if not logged_in %}
     <form method="POST" action="{{ url_for('blog.post_login') }}">
-        <h3>Login</h3>
+        <h3>Anmeldung</h3>
         <p>
-            <label for="user">user</label><br>
-            <input type="text" placeholder="user" id="user" name="user">
+            <label for="user">Benutzer</label><br>
+            <input type="text" id="user" name="user">
         </p>
         <p>
-            <label for="password">password</label><br>
-            <input type="password" placeholder="password" id="password" name="password">
+            <label for="password">Passwort</label><br>
+            <input type="password" id="password" name="password">
         </p>
         {% with messages = get_flashed_messages() %}
         {% if messages %}

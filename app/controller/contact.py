@@ -15,9 +15,9 @@ def check_email(email: str) -> (bool, Optional[str], Optional[str]):
 
 def check_message(message: str) -> (bool, Optional[str], Optional[str]):
     if len(message) == 0:
-        return False, "Please enter a message.", message
+        return False, "Bitte gib eine Nachricht ein.", message
     if len(message) > 2000:
-        return False, "Your message must not be longer than 2000 characters.", message
+        return False, "Deine Nachricht darf nicht länger als 2000 Zeichen sein.", message
     return True, None, message
 
 
