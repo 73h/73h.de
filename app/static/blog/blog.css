@@ -1,41 +1,60 @@
-.article {
-    margin: 0 0 4em 0;
+article {
+    padding: 2em 0 3em 0;
 }
 
-.article .created {
+article .created {
     opacity: .7;
     margin-bottom: .5em;
 }
 
-.article h3 {
+article h3 {
     font-size: 1.4em;
     margin-top: 0;
 }
 
-.article .content img {
+article .content img {
     max-width: 100%;
 }
 
-.article .content code {
+article .content code {
     margin: .6em 0;
     white-space: pre;
     display: inline-block;
-    padding: .6em .8em;
-    background-color: var(--bkg-color-nuance);
-    box-shadow: 0 0 .5em .5em var(--bkg-color);
+    padding: .8em 1em;
 }
 
-.edit-article input[type="text"], .edit-article textarea {
+.row:nth-child(odd) article .content code {
+    background-color: var(--bkg-color);
+}
+
+.row:nth-child(even) article .content code {
+    background-color: var(--bkg-color-nuance);
+}
+
+article.contact textarea {
+    width: 100%;
+    height: 6em;
+}
+
+article.contact input {
+    width: 50%;
+}
+
+@media only screen and (max-width: 900px) {
+
+    article.contact input, article.contact textarea {
+        width: 94%;
+    }
+
+}
+
+article.edit input[type="text"], article.edit textarea {
     width: 100%;
 }
 
-.edit-article textarea {
+article.edit textarea {
     height: 30em;
     font-size: 1em;
-}
-
-.edit-article, .add-article {
-    margin-bottom: 3em;
 }
 
 .smiley {

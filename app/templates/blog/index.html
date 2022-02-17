@@ -1,17 +1,19 @@
 {% extends "blog/base.html" %}
 {% block content %}
+{% if logged_in %}
 <div class="row">
-    {% if logged_in %}
-    <div class="add-article">
+    <article>
         <form method="POST" action="{{ url_for('blog.add_article') }}">
             <p>
-                <button type="submit">Add article</button>
+                <button type="submit">Artikel hinzufügen</button>
             </p>
         </form>
-    </div>
-    {% endif %}
-    {% for article in articles %}
-    <div class="article">
+    </article>
+</div>
+{% endif %}
+{% for article in articles %}
+<div class="row">
+    <article>
         <p class="created">{{ article.get_created() }} Uhr</p>
         <h3>
             <a href="{{ url_for('blog.get_article', url = article.url) }}" title="{{ article.title }}">{{ article.title
@@ -20,7 +22,7 @@
         <div class="content">
             {{ article.get_markdown()|safe }}
         </div>
-    </div>
-    {% endfor %}
+    </article>
 </div>
+{% endfor %}
 {% endblock %}
