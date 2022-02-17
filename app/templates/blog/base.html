@@ -28,29 +28,31 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
 </head>
 <body>
-<header>
+<div class="row">
     {% include "toogle-scheme.html" %}
-    <h1><a href="{{ url_for('blog.index') }}" title="{{ title }}">Blog 73</a></h1>
-    <h2>{{ title }}</h2>
-</header>
-<main>
-    {% block content %}
-    {% endblock %}
-</main>
-<footer>
-    <p>
-        <a href="https://73h.de" title="Heiko Schmidt">Ich</a>
-        <a href="{{ url_for('blog.get_contact') }}" title="Konkakt">Konkakt</a>
-        <a href="{{ url_for('blog.impressum') }}" title="Impressum">Impressum</a>
-        {% if not logged_in %}
-        <a href="{{ url_for('blog.get_login') }}">Anmelden</a>
-        {% endif %}
-        {% if logged_in %}
-        <a href="{{ url_for('blog.logout') }}">Abmelden</a>
-        {% endif %}
-    </p>
-    {% include "footer-icons8.html" %}
-</footer>
+    <header>
+        <h1><a href="{{ url_for('blog.index') }}" title="{{ title }}">Blog 73</a></h1>
+        <h2>{{ title }}</h2>
+    </header>
+</div>
+{% block content %}
+{% endblock %}
+<div class="row">
+    <footer>
+        <p>
+            <a href="https://73h.de" title="Heiko Schmidt">Ich</a>
+            <a href="{{ url_for('blog.get_contact') }}" title="Konkakt">Konkakt</a>
+            <a href="{{ url_for('blog.impressum') }}" title="Impressum">Impressum</a>
+            {% if not logged_in %}
+            <a href="{{ url_for('blog.get_login') }}">Anmelden</a>
+            {% endif %}
+            {% if logged_in %}
+            <a href="{{ url_for('blog.logout') }}">Abmelden</a>
+            {% endif %}
+        </p>
+        {% include "footer-icons8.html" %}
+    </footer>
+</div>
 <script type="text/javascript" src="{{url_for('static', filename='main.js')}}{{ asset_version }}"></script>
 <script>
     document.querySelectorAll('code').forEach(el => {

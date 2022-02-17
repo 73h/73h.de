@@ -1,7 +1,3 @@
-article {
-    padding: 2em 0 3em 0;
-}
-
 article .created {
     opacity: .7;
     margin-bottom: .5em;
@@ -18,17 +14,21 @@ article .content img {
 
 article .content code {
     margin: .6em 0;
-    white-space: pre;
     display: inline-block;
     padding: .8em 1em;
-}
-
-.row:nth-child(odd) article .content code {
-    background-color: var(--bkg-color);
+    border-radius: 0.5em;
+    max-width: 94%;
+    white-space: pre-wrap;
 }
 
 .row:nth-child(even) article .content code {
+    background-color: var(--bkg-color);
+    box-shadow: 0 0 1em -0.2em var(--bkg-color);
+}
+
+.row:nth-child(odd) article .content code {
     background-color: var(--bkg-color-nuance);
+    box-shadow: 0 0 1em -0.2em var(--bkg-color-nuance);
 }
 
 article.contact textarea {

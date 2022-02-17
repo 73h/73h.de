@@ -93,7 +93,7 @@ body {
 .scheme-toggle {
     float: right;
     cursor: pointer;
-    margin-right: 2.5em;
+    margin: 2.5em 5em 0 0;
 }
 
 label {
@@ -147,18 +147,13 @@ button:disabled {
     display: none !important;
 }
 
-main, body {
-    background: var(--bkg-color-nuance);
-}
-
-header h1, header h2, header p, footer p, main article {
-    margin-left: auto;
-    margin-right: auto;
+header, footer, article {
+    margin: 0 auto;
     max-width: 900px;
 }
 
-main {
-    padding: 0;
+article {
+    padding: 2em 0 3em 0;
 }
 
 header {
@@ -169,12 +164,12 @@ footer {
     padding: 2em 0 3em 0;
 }
 
-header, footer {
-    background: var(--bkg-color);
+.row:nth-child(odd), body {
+    background-color: var(--bkg-color);
 }
 
-main .row:nth-child(even) {
-    background: var(--bkg-color);
+.row:nth-child(even) {
+    background-color: var(--bkg-color-nuance);
 }
 
 h1 {
@@ -197,20 +192,20 @@ h2 {
 
 @media only screen and (max-width: 900px) {
 
-    main {
-        padding: 0 1.5em;
+    article {
+        margin: 0 1.5em;
     }
 
     header {
-        padding: 3em 1.5em 4em 1.5em;
+        margin: 0 1.5em;
     }
 
     footer {
-        padding: 2em 1.5em 3em 1.5em;
+        margin: 0 1.5em;
     }
 
     .scheme-toggle {
-        margin-right: 0;
+        margin: 2.5em 1.5em 0 0;
     }
 
     button span {
