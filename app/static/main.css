@@ -8,6 +8,8 @@
     --bkg-color-nuance-light: #efefef;
     --bkg-color-inverted-dark: #ddd;
     --bkg-color-inverted-light: #323232;
+    --bkg-image-dark: url(header-dark.png);
+    --bkg-image-light: url(header-light.png);
 }
 
 body {
@@ -16,6 +18,7 @@ body {
     --bkg-color: var(--bkg-color-light);
     --bkg-color-inverted: var(--bkg-color-inverted-light);
     --bkg-color-nuance: var(--bkg-color-nuance-light);
+    --bkg-image: var(--bkg-image-light);
     --visible-light: inline;
     --visible-dark: none;
 }
@@ -26,6 +29,7 @@ body.dark-theme {
     --bkg-color: var(--bkg-color-dark);
     --bkg-color-inverted: var(--bkg-color-inverted-dark);
     --bkg-color-nuance: var(--bkg-color-nuance-dark);
+    --bkg-image: var(--bkg-image-dark);
     --visible-light: none;
     --visible-dark: inline;
 }
@@ -38,6 +42,7 @@ body.dark-theme {
         --bkg-color: var(--bkg-color-dark);
         --bkg-color-inverted: var(--bkg-color-inverted-dark);
         --bkg-color-nuance: var(--bkg-color-nuance-dark);
+        --bkg-image: var(--bkg-image-dark);
         --visible-light: none;
         --visible-dark: inline;
     }
@@ -48,6 +53,7 @@ body.dark-theme {
         --bkg-color: var(--bkg-color-light);
         --bkg-color-inverted: var(--bkg-color-inverted-light);
         --bkg-color-nuance: var(--bkg-color-nuance-light);
+        --bkg-image: var(--bkg-image-light);
         --visible-light: inline;
         --visible-dark: none;
     }
@@ -93,7 +99,7 @@ body {
 .scheme-toggle {
     float: right;
     cursor: pointer;
-    margin: 2.5em 5em 0 0;
+    margin: 4em 5em 0 0;
 }
 
 label {
@@ -157,18 +163,23 @@ article {
 }
 
 header {
-    padding: 3em 0 4em 0;
+    padding: 4em 0 5em 0;
+}
+
+.row:first-of-type, .row:last-of-type {
+    background-image: var(--bkg-image);
+    background-size: cover;
 }
 
 footer {
-    padding: 2em 0 3em 0;
+    padding: 3em 0 4em 0;
 }
 
-.row:nth-child(odd), body {
+.row:nth-of-type(odd), body {
     background-color: var(--bkg-color);
 }
 
-.row:nth-child(even) {
+.row:nth-of-type(even) {
     background-color: var(--bkg-color-nuance);
 }
 
@@ -205,7 +216,7 @@ h2 {
     }
 
     .scheme-toggle {
-        margin: 2.5em 1.5em 0 0;
+        margin: 2em 1.5em 0 0;
     }
 
     button span {

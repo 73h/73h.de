@@ -21,12 +21,12 @@ article .content code {
     white-space: pre-wrap;
 }
 
-.row:nth-child(even) article .content code {
+.row:nth-of-type(even) article .content code {
     background-color: var(--bkg-color);
     box-shadow: 0 0 1em -0.2em var(--bkg-color);
 }
 
-.row:nth-child(odd) article .content code {
+.row:nth-of-type(odd) article .content code {
     background-color: var(--bkg-color-nuance);
     box-shadow: 0 0 1em -0.2em var(--bkg-color-nuance);
 }
