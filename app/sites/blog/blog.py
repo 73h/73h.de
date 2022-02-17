@@ -19,7 +19,7 @@ host = f"blog.{HOSTNAME}"
 def index():
     db.connect()
     articles = db.get_articles(with_unpublished=is_user_logged_in())
-    return render(site="index", title="IT und mehr.", articles=articles)
+    return render(site="index", title="Entwicklung und mehr.", articles=articles)
 
 
 @site_blog.get("/article/<url>", host=host)
@@ -27,7 +27,7 @@ def get_article(url: str):
     db.connect()
     article = db.get_article(url)
     if article is not None:
-        return render(site="article", title="IT und mehr.", article=article)
+        return render(site="article", title="Entwicklung und mehr.", article=article)
     abort(404)
 
 
@@ -46,7 +46,7 @@ def post_article(url: str):
         if not db.update_article(article):
             flash('Sorry, that did not work.')
             article = db.get_article(url)
-            return render(site="article", title="IT und mehr.", article=article)
+            return render(site="article", title="Entwicklung und mehr.", article=article)
         return redirect(url_for('blog.get_article', url=article.url))
     abort(404)
 
