@@ -166,7 +166,7 @@ header {
     padding: 4em 0 5em 0;
 }
 
-.row:first-of-type, .row:last-of-type {
+.row:first-of-type {
     background-image: var(--bkg-image);
     background-size: cover;
 }
