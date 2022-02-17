@@ -202,6 +202,10 @@ a {
     text-decoration: none;
 }
 
+p a {
+    text-decoration: underline;
+}
+
 a:hover {
     opacity: 0.5;
 }
