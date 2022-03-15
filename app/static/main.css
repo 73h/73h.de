@@ -158,6 +158,19 @@ header, footer, article {
     max-width: 900px;
 }
 
+html, body {
+    height: 100%;
+}
+
+.wrapper {
+    background: var(--bkg-color);
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1100px;
+    min-height: 100%;
+    box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.29);
+}
+
 article {
     padding: 2em 0 3em 0;
 }
