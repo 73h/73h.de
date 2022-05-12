@@ -20,5 +20,7 @@ body {
     margin: auto 2em;
     background-color: #323232;
     height: 100%;
+    background-image: url(../header-dark.png);
+    background-size: cover;
 }
 
