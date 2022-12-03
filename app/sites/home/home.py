@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, Response, make_response, redirect
+from flask import Blueprint, render_template, Response, make_response
 
 from utils.config import HOSTNAME
 from utils.http import Http
@@ -10,13 +10,6 @@ site_home = Blueprint("home", __name__)
 @site_home.get("/", host=f"www.{HOSTNAME}")
 def index():
     return render_template("home/index.html")
-
-
-@site_home.get("/greets/<key>", host=HOSTNAME)
-def greets(key: str):
-    if key == "1":
-        return render_template("home/greets.html")
-    return redirect("/", code=302)
 
 
 @site_home.route("/robots.txt", host=HOSTNAME)
