@@ -10,7 +10,7 @@ jobs:
       id-token: 'write'
     steps:
       - uses: actions/checkout@v2
-      - uses: 73h/gae-app-yaml-replace-env-variables@v0.1
+      - uses: 73h/gae-app-yaml-replace-env-variables@v0.3
         env:
           MONGO_CONNECTION_STRING: ${{ secrets.MONGO_CONNECTION_STRING }}
           BLOG_CREDENTIALS: ${{ secrets.BLOG_CREDENTIALS }}
