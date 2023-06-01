@@ -12,7 +12,7 @@ from utils.config import HOSTNAME
 from utils.http import Http
 
 site_blog = Blueprint("blog", __name__)
-host = f"blog.{HOSTNAME}"
+host = f"{HOSTNAME}"
 
 
 @site_blog.get("/", host=host)
@@ -122,7 +122,7 @@ def sitemap():
     static_urls.append({
         "loc": f"{http.url}"
     })
-    static_roots = ["impressum", "kontakt"]
+    static_roots = ["impressum", "kontakt", "ich"]
     for root in static_roots:
         url = {
             "loc": f"{http.url}/{str(root)}"

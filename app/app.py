@@ -1,6 +1,6 @@
 import secrets
 
-from flask import Flask
+from flask import Flask, redirect, url_for
 
 from sites.blog.blog import site_blog
 from sites.home.home import site_home
@@ -15,5 +15,15 @@ def create_app():
 
     app.register_blueprint(site_home)
     app.register_blueprint(site_blog)
+
+    host = f"{HOSTNAME}"
+
+    @app.route('/<path:text>', host=f"blog.{host}")
+    @app.route('/<path:text>', host=f"www.{host}")
+    @app.route('/', host=f"blog.{host}")
+    @app.route('/', host=f"www.{host}")
+    def rd(text=""):
+        rd_url = f"{url_for('blog.index')}{text}"
+        return redirect(rd_url, code=301)
 
     return app

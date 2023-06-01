@@ -40,7 +40,7 @@
     <div class="row">
         <footer>
             <p>
-                <a href="https://73h.de" title="Heiko Schmidt">Ich</a>
+                <a href="{{ url_for('home.index') }}" title="Heiko Schmidt">Ich</a>
                 <a href="{{ url_for('blog.get_contact') }}" title="Konkakt">Konkakt</a>
                 <a href="{{ url_for('blog.impressum') }}" title="Impressum">Impressum</a>
                 {% if not logged_in %}

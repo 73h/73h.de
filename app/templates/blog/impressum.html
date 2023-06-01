@@ -4,7 +4,7 @@
     <article>
         <p>Heiko Schmidt</p>
         <p>In der Nähe von Berlin.</p>
-        <p>Kontakt: <a href="{{ url_for('blog.get_contact') }}">https://blog.73h.de/kontakt</a></p>
+        <p>Kontakt: <a href="{{ url_for('blog.get_contact') }}">{{ url_for('blog.get_contact') }}</a></p>
     </article>
 </div>
 {% endblock %}

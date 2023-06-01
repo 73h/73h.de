@@ -16,7 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
     <meta property="og:title" content="Heiko Schmidt"/>
     <meta property="og:site_name" content="Heiko Schmidt"/>
-    <meta property="og:url" content="https://73h.de"/>
+    <meta property="og:url" content="{{ url_for('blog.index') }}"/>
     <meta property="og:description" content="Heiko Schmidt, Development, Software development, software architecture"/>
     <meta property="og:locale" content="de_DE"/>
     <meta property="og:image" content="{{url_for('static', filename='home/apple-touch-icon.png')}}"/>
@@ -52,7 +52,7 @@
     </div>
     <div class="footer">
         <p>In der Nähe von Berlin.</p>
-        <p><a href="https://blog.73h.de" title="Blog 73 - Entwicklung und mehr.">Blog 73</a></p>
+        <p><a href="{{ url_for('blog.index') }}" title="Blog 73 - Entwicklung und mehr.">Blog 73</a></p>
         {% include "footer-icons8.html" %}
     </div>
 </div>
