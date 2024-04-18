@@ -9,17 +9,17 @@ jobs:
       contents: 'read'
       id-token: 'write'
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: 73h/gae-app-yaml-replace-env-variables@v0.3
         env:
           MONGO_CONNECTION_STRING: ${{ secrets.MONGO_CONNECTION_STRING }}
           BLOG_CREDENTIALS: ${{ secrets.BLOG_CREDENTIALS }}
           TELEGRAM_BOT_API_TOKEN: ${{ secrets.TELEGRAM_BOT_API_TOKEN }}
           TELEGRAM_BOT_API_CHAT_ID: ${{ secrets.TELEGRAM_BOT_API_CHAT_ID }}
-      - uses: 'google-github-actions/auth@v0'
+      - uses: 'google-github-actions/auth@v2'
         with:
           credentials_json: '${{ secrets.GCP_SA_JSON }}'
-      - uses: 'google-github-actions/deploy-appengine@v0'
+      - uses: 'google-github-actions/deploy-appengine@v2'
         with:
           deliverables: 'app.yaml'
           promote: true
