@@ -4,6 +4,7 @@ from flask import Flask, redirect, url_for
 
 from sites.blog.blog import site_blog
 from sites.home.home import site_home
+from sites.slack import site_slack
 from utils.config import HOSTNAME
 
 
@@ -15,6 +16,7 @@ def create_app():
 
     app.register_blueprint(site_home)
     app.register_blueprint(site_blog)
+    app.register_blueprint(site_slack)
 
     host = f"{HOSTNAME}"
 
