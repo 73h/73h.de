@@ -18,6 +18,7 @@ Create a virtual env (venv)
 pip install virtualenv
 virtualenv --python C:\Path\To\Python\python.exe venv
 .\venv\Scripts\activate
+pip install -r .\requirements.txt
 ```
 
 Start the flask application with the following command.
