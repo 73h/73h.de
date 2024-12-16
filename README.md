@@ -12,6 +12,14 @@ Set these entries in your local /etc/hosts file for domain-handling.
 127.0.0.1 73h-dev.de
 ```
 
+Create a virtual env (venv)
+
+```
+pip install virtualenv
+virtualenv --python C:\Path\To\Python\python.exe venv
+.\venv\Scripts\activate
+```
+
 Start the flask application with the following command.
 
 ```
