@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>time recording</title>
+</head>
+<body>
+{% for time_recording in calender %}
+    <div class="row">
+        <p>{{ time_recording.date }} / {{ time_recording.id }}</p>
+    </div>
+{% endfor %}
+</body>
+</html>

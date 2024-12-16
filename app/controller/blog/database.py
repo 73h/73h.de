@@ -1,10 +1,13 @@
 import os
+from datetime import datetime
 from typing import Optional
 
 import pymongo
 
 from models.blog.article import Article
 from models.blog.articles import Articles
+from models.time_recording.time_recording import TimeRecording
+from models.time_recording.time_recordings import TimeRecordings
 from utils.config import DATABASE
 
 
@@ -49,6 +52,15 @@ class Database:
 
     def delete_article(self, article: Article):
         self.db.articles.delete_one({'_id': article.id})
+
+    def get_time_recordings(self, user: str, year: int) -> list:
+        start = datetime(year, 1, 1, 0, 0, 0)
+        end = datetime(year, 12, 31, 23, 59, 59)
+        time_recordings = list(self.db.time_recording.find({
+            "user": user,
+            "date": {'$lt': end, '$gte': start}
+        }))
+        return TimeRecordings(time_recordings).time_recordings
 
 
 db = Database()
