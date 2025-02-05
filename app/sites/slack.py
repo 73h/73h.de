@@ -30,7 +30,7 @@ def wie_lange_noch():
         seconds = delta.seconds-(minutes*60+hours*60*60)
         response = {
             "response_type": "ephemeral",
-            "text": f"Stephan arbeitet noch {days} Tage, {hours} Stunden, {minutes} Minuten und {seconds} Sekunden für uns. :muskel:"
+            "text": f"Stephan arbeitet noch {days} Tage, {hours} Stunden, {minutes} Minuten und {seconds} Sekunden für uns."
         }
         return response, 200
     return "", 200
