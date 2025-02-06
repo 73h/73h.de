@@ -21,16 +21,18 @@ def index():
 
 @site_slack.post("/wie-lange-noch", host=host)
 def wie_lange_noch():
-    if "token" in request.form and "user_id" in request.form:
-        end_date = datetime.datetime(2025, 12, 31, 17, 0, 0)
-        delta = end_date - datetime.datetime.now()
-        days = delta.days
-        hours = floor(delta.seconds/60/60)
-        minutes = floor(delta.seconds/60)-hours*60
-        seconds = delta.seconds-(minutes*60+hours*60*60)
-        response = {
-            "response_type": "ephemeral",
-            "text": f"Stephan arbeitet noch {days} Tage, {hours} Stunden, {minutes} Minuten und {seconds} Sekunden für uns."
-        }
-        return response, 200
-    return "", 200
+    return rente("Stephan", 2025, 12, 31)
+
+@site_slack.post("/rente/<name>/<y>/<m>/<d>", host=host)
+def rente(name, y, m, d):
+    end_date = datetime.datetime(int(y), int(m), int(d), 17, 0, 0)
+    delta = end_date - datetime.datetime.now()
+    days = delta.days
+    hours = floor(delta.seconds/60/60)
+    minutes = floor(delta.seconds/60)-hours*60
+    seconds = delta.seconds-(minutes*60+hours*60*60)
+    response = {
+        "response_type": "ephemeral",
+        "text": f"{name} arbeitet noch {days} Tage, {hours} Stunden, {minutes} Minuten und {seconds} Sekunden für uns."
+    }
+    return response, 200
