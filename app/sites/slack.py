@@ -38,8 +38,11 @@ def rente(name, y, m, d):
     }
     return response, 200
 
+@site_slack.post("/letters-to-int/<length>", host=host)
 @site_slack.post("/letters-to-int/<length>/<letters>", host=host)
-def letters_to_int(length, letters):
+def letters_to_int(length, letters = ""):
+    if request and "text" in request.form:
+        letters = request.form["text"]
     result = 0
     letters = letters.upper().replace("Ä", "AE").replace("Ü", "UE").replace("Ö", "OE").replace("ß", "ss")
     letters = re.sub(r"[^A-Z]", "", letters)
