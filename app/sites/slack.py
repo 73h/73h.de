@@ -38,11 +38,7 @@ def rente(name, y, m, d):
     }
     return response, 200
 
-@site_slack.post("/letters-to-int/<length>", host=host)
-@site_slack.post("/letters-to-int/<length>/<letters>", host=host)
-def letters_to_int(length, letters = ""):
-    if request and "text" in request.form:
-        letters = request.form["text"]
+def letters_to_int(length, letters = "") -> str:
     result = 0
     letters = letters.upper().replace("Ä", "AE").replace("Ü", "UE").replace("Ö", "OE").replace("ß", "ss")
     letters = re.sub(r"[^A-Z]", "", letters)
@@ -51,15 +47,21 @@ def letters_to_int(length, letters = ""):
     for c in letters:
         result += (ord(c) - 65) * 26**i
         i += -1
-    result += 1
+    return str(result+1)
+
+@site_slack.post("/letters-to-int/<length>", host=host)
+def letters_to_int_route(length):
+    message = "Gib mir bitte ein paar Buchstaben - ich mag Buchstaben! :smiley:"
+    if request and "text" in request.form:
+        letters = request.form["text"].split(" ")
+        result = []
+        for l in letters:
+            if l:
+                result.append(letters_to_int(length, l))
+        if len(result) > 0:
+            message = " ".join(result)
     response = {
         "response_type": "ephemeral",
-        "text": f"{str(result)}"
+        "text": f"{str(message)}"
     }
     return response, 200
-
-if __name__ == "__main__":
-    print(letters_to_int("4", "von Bergen"))
-    print(letters_to_int("4", "Schmidt"))
-    print(letters_to_int("4", "Jö'rn"))
-    print(letters_to_int("4", "sd"))
