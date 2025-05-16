@@ -47,11 +47,11 @@ def letters_to_int(length, letters = ""):
     letters = letters.upper().replace("Ä", "AE").replace("Ü", "UE").replace("Ö", "OE").replace("ß", "ss")
     letters = re.sub(r"[^A-Z]", "", letters)
     letters = letters.ljust(int(length),"A")[:int(length)]
-    print(letters)
     i = int(length)-1
     for c in letters:
         result += (ord(c) - 65) * 26**i
         i += -1
+    result += 1
     response = {
         "response_type": "ephemeral",
         "text": f"{str(result)}"
